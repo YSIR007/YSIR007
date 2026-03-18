@@ -5,6 +5,7 @@ I am an AI enthusiast and practitioner. My focus is on computer vision (CV) and 
 - 🔭 Current Focus: I am deeply engaged in exploring World Models—generative architectures that allow AI to build internal mental representations of physical dynamics. By leveraging self-supervised learning and latent space imagination, I aim to develop agents that can "foresee" the outcomes of their actions, significantly enhancing decision-making in non-deterministic settings.
 
 - 🌱 NLP Innovations: I'm always on the lookout for new techniques and algorithms that can enhance the way we interact with machines through language. My work involves staying at the forefront of NLP to ensure that communication between humans and AI is as seamless and natural as possible.
+- 🤖 Embodied AI:My goal is to transition AI from "passive observers" to "active participants." I work on integrating high-level reasoning with low-level motor control, utilizing Vision-Language-Action (VLA) models. My research involves fine-tuning foundation models for robotic manipulation, ensuring that perception leads to precise, real-world execution.
 
 -  🚀 AIGC Development: I'm fascinated by the potential of AI to create content that is not only engaging but also adds value. Whether it's writing, art, or code, I believe AIGC has the power to revolutionize creative industries.
 - 🌱 I’m currently learning ...
