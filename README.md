@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-I am an AI enthusiast and practitioner. My focus is on computer vision (CV) and device-embedded AI, with a particular interest in how world models enable agents to predict and navigate complex environments. I am also passionate about natural language processing (NLP). My current focus is on the cutting-edge technologies surrounding AI Generated Content (AIGC), where I am deeply engaged in exploring and implementing large-scale AI models.
+I am an AI enthusiast and practitioner. My focus is on computer vision (CV) and Embodied AI, with a particular interest in how world models enable agents to predict and navigate complex environments. I am also passionate about natural language processing (NLP). My current focus is on the cutting-edge technologies surrounding AI Generated Content (AIGC), where I am deeply engaged in exploring and implementing large-scale AI models.
 
 - 🔭 Current Focus: World Models
 I am deeply engaged in exploring World Models—generative architectures that allow AI to build internal mental representations of physical dynamics. By leveraging self-supervised learning and latent space imagination, I aim to develop agents that can "foresee" the outcomes of their actions, significantly enhancing decision-making in non-deterministic settings.
