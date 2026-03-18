@@ -1,7 +1,9 @@
 ## Hi there 👋
 
-I'm an AI enthusiast and a practitioner in the field of Artificial Intelligence, with a particular passion for Natural Language Processing (NLP). My current focus is on the cutting-edge technologies surrounding AI Generated Content (AIGC), where I am deeply engaged in exploring and implementing large-scale AI models.
-- 🔭 I’m currently working on Exploring and learning Large Models: I'm diving deep into the world of AI models that are pushing the boundaries of what's possible in terms of size and capability. These models are not just big; they're transformative in how they process and generate human-like text.
+I'm an AI enthusiast and a practitioner in the field of Artificial Intelligence, My work focuses on Computer Vision (CV) and Embodied AI, with a growing emphasis on how World Models can enable agents to predict and navigate complex environments.
+with a particular passion for Natural Language Processing (NLP). My current focus is on the cutting-edge technologies surrounding AI Generated Content (AIGC), where I am deeply engaged in exploring and implementing large-scale AI models.
+- 🔭 Current Focus: World Models & Predictive Perception
+I am deeply engaged in exploring World Models—generative architectures that allow AI to build internal mental representations of physical dynamics. By leveraging self-supervised learning and latent space imagination, I aim to develop agents that can "foresee" the outcomes of their actions, significantly enhancing decision-making in non-deterministic settings.
 
 - 🌱 NLP Innovations: I'm always on the lookout for new techniques and algorithms that can enhance the way we interact with machines through language. My work involves staying at the forefront of NLP to ensure that communication between humans and AI is as seamless and natural as possible.
 
