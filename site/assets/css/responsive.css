@@ -1,0 +1,57 @@
+@media(max-width:1100px){
+  .hero-glass{width:91%}
+  .bento-grid{grid-template-columns:1fr 1fr}
+  .bento-card.feature{grid-column:span 2;grid-row:auto;min-height:290px}
+  .expertise-grid{grid-template-columns:repeat(2,1fr)}
+  .expertise-item p{min-height:0}
+}
+@media(max-width:830px){
+  .nav-inner{grid-template-columns:1fr auto;gap:12px}
+  .nav-links{display:none}
+  .brand{justify-self:start}
+  .menu-toggle{display:grid;place-items:center}
+  .mobile-menu{display:none;flex-direction:column;gap:6px;padding:10px 24px 20px;border-top:1px solid var(--line)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-size:14px;padding:11px;border-bottom:1px solid var(--line)}
+  .hero-glass{width:90%;left:5%;transform:none;grid-template-columns:1fr;bottom:19px}
+  .glass-main{padding:25px}
+  .glass-preview{display:none}
+  .hero-stage{height:625px}
+  .projects-grid{grid-template-columns:1fr}
+  .thinking-grid{grid-template-columns:1fr;gap:25px}
+}
+@media(max-width:640px){
+  .wrap{width:calc(100% - 32px)}
+  .nav-inner{height:65px}
+  .nav-right{gap:7px}
+  .brand{font-size:15px}
+  .brand-symbol{width:29px;height:29px;font-size:20px}
+  .nav-action{font-size:11px;padding:10px 13px}
+  .hero{padding-top:68px}
+  .hero h1{font-size:clamp(45px,10vw,64px)}
+  .hero-sub{font-size:15px}
+  .hero-stage{margin-top:32px;height:600px;border-radius:23px}
+  .scene-meta{top:22px;left:17px}.scene-count{top:22px;right:17px}
+  .glass-main{padding:21px;gap:16px}
+  .glass-main h2{font-size:29px}
+  .glass-main p{font-size:12px}
+  .hero-scroll{margin-bottom:79px}
+  .section{padding-bottom:80px}
+  .section-head{margin-bottom:29px}
+  .bento-stage{border-radius:24px;padding:44px 14px 14px}
+  .bento-grid{grid-template-columns:1fr}
+  .bento-card.feature{grid-column:auto;min-height:360px}
+  .bento-card{min-height:195px;padding:23px}
+  .project-art{height:245px}
+  .project-details{padding:24px}
+  .project-details p{min-height:0}
+  .toolkit-stage{padding:45px 19px 26px;border-radius:24px}
+  .expertise-grid{grid-template-columns:1fr}
+  .expertise-item{padding-top:20px}
+  .expertise-item h3{margin-top:15px}
+  .thinking-note{grid-template-columns:70px 1fr;gap:14px}
+  .closing{border-radius:24px;padding:35px 23px;min-height:450px}
+  .closing:before{background:linear-gradient(180deg,rgba(246,240,231,.08),rgba(246,240,231,.87) 46%,rgba(246,240,231,.95))}
+  .footer{padding-top:38px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
