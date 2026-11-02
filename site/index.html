@@ -1,136 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="YSIR007 的个人主页：AI、计算机视觉与软件创作。">
-  <meta name="theme-color" content="#f7f9fe">
-  <title>YSIR007 · 个人主页</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta name="description" content="YSIR007 的个人数字工作室。聚焦工业机器视觉、AI 应用、系统集成与独立软件产品。">
+  <title>YSIR007 — Engineering · AI · Independent Software</title>
   <style>
-    :root{--bg:#f7f9fe;--surface:rgba(255,255,255,.78);--surface2:rgba(255,255,255,.65);--border:#dbe4f0;--text:#182841;--muted:#64758e;--brand:#4869cd;--mint:#098e86}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:linear-gradient(135deg,#fbfcff 0%,#f0f5fe 48%,#f6fbfb 100%);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.75}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit;cursor:pointer}
-    .container{width:min(1100px,calc(100% - 42px));margin:auto}
-    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{font-size:20px;font-weight:800;letter-spacing:-.7px;display:flex;align-items:center;gap:11px}
-    .logo-mark{display:grid;place-items:center;height:33px;width:33px;border-radius:10px;color:#fff;background:linear-gradient(135deg,#2bb9b0,#5975df);font-size:19px}
-    .nav-links{display:flex;align-items:center;gap:27px;color:var(--muted);font-size:13px}
-    .nav-links a:hover,.text-link:hover{color:var(--mint)}
-    .nav-github{border:1px solid var(--border);padding:9px 15px;border-radius:10px;color:var(--text)!important}
-    .nav-github:hover{border-color:var(--brand)}
-    .hero{padding:108px 0 115px;position:relative;isolation:isolate}
-    .hero:before{content:"";position:absolute;z-index:-1;inset:-50px -40px 0;background:radial-gradient(ellipse at 72% 30%,rgba(115,148,246,.16),transparent 46%),radial-gradient(ellipse at 24% 70%,rgba(54,187,173,.11),transparent 46%);pointer-events:none}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(91,125,220,.24);color:#4566b8;border-radius:999px;padding:7px 13px;background:rgba(255,255,255,.66);backdrop-filter:blur(12px);font-size:12px;font-weight:650;letter-spacing:.03em}
-    .eyebrow:before{content:"";width:7px;height:7px;background:var(--mint);box-shadow:0 0 0 4px rgba(9,142,134,.12);border-radius:50%}
-    h1{font-size:clamp(43px,7vw,76px);letter-spacing:-2px;line-height:1.14;margin:29px 0 24px;font-weight:800}
-    h1 span{color:transparent;background:linear-gradient(95deg,#3457c2 0%,#4875cb 50%,#0c928c 100%);background-clip:text;-webkit-background-clip:text}
-    .hero p{font-size:17px;max-width:675px;color:var(--muted);margin:0 0 32px}
-    .actions{display:flex;flex-wrap:wrap;gap:13px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:11px;padding:13px 20px;font-size:14px;font-weight:700;transition:transform .15s,border-color .15s}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{color:#fff;background:linear-gradient(110deg,#486de2,#288eaa);box-shadow:0 10px 24px rgba(66,105,194,.17)}
-    .btn-secondary{color:var(--text);border:1px solid var(--border);background:rgba(255,255,255,.72);backdrop-filter:blur(12px)}
-    .hero-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:43px;color:#75859f;font-size:12px}
-    .hero-meta b{color:#49627e;font-weight:600}
-    section.content{padding:55px 0 75px;border-top:1px solid rgba(128,151,192,.19)}
-    .section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
-    .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--mint);font-weight:750}
-    h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.8px;line-height:1.3;margin:9px 0 0}
-    .section-top>p{max-width:390px;margin:0;color:var(--muted);font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.76);backdrop-filter:blur(18px);box-shadow:0 14px 45px rgba(70,105,155,.06);padding:25px;min-height:216px;transition:transform .2s,border-color .2s}
-    .card:hover{transform:translateY(-4px);border-color:#99aed5}
-    .card-icon{display:grid;place-items:center;height:42px;width:42px;border-radius:12px;background:rgba(95,123,220,.11);color:#4d6fcb;font-size:21px}
-    .card h3{font-size:18px;margin:23px 0 8px;letter-spacing:-.3px}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.85}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .project{display:flex;flex-direction:column;min-height:270px;border:1px solid var(--border);border-radius:19px;overflow:hidden;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);box-shadow:0 14px 45px rgba(70,105,155,.06)}
-    .project-visual{height:104px;padding:22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(115deg,rgba(124,151,246,.17),rgba(113,207,191,.12))}
-    .project-visual.alt{background:linear-gradient(115deg,rgba(102,74,202,.19),rgba(66,116,214,.13))}
-    .project-symbol{font-size:31px;font-weight:800;letter-spacing:-2px;color:#4668ae}
-    .pill{border:1px solid rgba(94,126,181,.24);border-radius:999px;color:#59718e;padding:5px 10px;font-size:11px;background:rgba(255,255,255,.54)}
-    .project-body{padding:22px;flex:1}
-    .project-body h3{font-size:19px;margin:0 0 10px}
-    .project-body p{font-size:13px;color:var(--muted);margin:0 0 17px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tags span{padding:4px 8px;color:#53709b;background:rgba(101,139,220,.08);border:1px solid rgba(101,139,220,.13);border-radius:6px;font-size:11px}
-    .cta{margin:30px 0 92px;background:rgba(255,255,255,.74);backdrop-filter:blur(18px);border:1px solid var(--border);box-shadow:0 16px 48px rgba(70,105,155,.065);border-radius:22px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-    .cta h2{margin:0 0 10px;font-size:27px}
-    .cta p{color:var(--muted);font-size:14px;margin:0}
-    footer{padding:27px 0 36px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#8291a6;font-size:12px}
-    a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
-    @media(max-width:750px){.nav{height:70px}.nav-links a:not(.nav-github){display:none}.hero{padding:76px 0 92px}.hero p{font-size:15px}.section-top{display:block}.section-top>p{margin-top:15px}.grid,.projects{grid-template-columns:1fr}.card{min-height:190px}.cta{padding:27px;display:block}.cta .btn{margin-top:24px}h1{letter-spacing:-1px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    :root{
+      --bg:#f7f8f6;--paper:#ffffff;--ink:#1e2729;--muted:#6f7a79;--light:#a0a9a5;
+      --line:#e2e7e2;--green:#496a5e;--mint:#dcece4;--serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft Yahei",sans-serif
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:96px}
+    body{margin:0;background:var(--bg);font-family:var(--sans);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    a:focus-visible{outline:2px solid var(--green);outline-offset:5px}
+    ::selection{background:#c9e4d6;color:#173b2e}
+    .wrap{width:min(1216px,calc(100% - 96px));margin-inline:auto}
+    .header{height:94px;border-bottom:1px solid var(--line);background:rgba(247,248,246,.94)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .brand{display:inline-flex;align-items:center;gap:13px;font-weight:730;letter-spacing:-.06em;font-size:21px}
+    .brand-emblem{display:grid;place-items:center;width:36px;height:36px;border:1px solid #aebfb4;background:#e9f1ec;border-radius:50%;font-family:var(--serif);font-style:italic;font-size:22px;font-weight:500;color:#416756}
+    .brand small{display:block;font-size:10px;letter-spacing:.16em;color:#96a49e;font-weight:600;margin-top:-6px}
+    .nav{display:flex;align-items:center;gap:36px;font-size:12px;font-weight:600;color:#67736e}
+    .nav a:hover,.link:hover{color:#255b46}
+    .nav .github-link{display:inline-flex;align-items:center;gap:8px;color:var(--ink);border-bottom:1px solid #97a89b;padding-bottom:3px}
+    .arrow{display:inline-block;font-family:var(--sans);font-weight:400}
+    .hero{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:5%;min-height:680px;padding-top:72px;padding-bottom:82px}
+    .overline{font-size:11px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--green)}
+    .overline .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#7b9f8a;vertical-align:middle;margin-right:11px}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-size:clamp(48px,5.3vw,79px);line-height:1.14;letter-spacing:-.07em;font-weight:620;margin:31px 0 26px}
+    .hero h1 .serif{font-family:var(--serif);font-style:italic;letter-spacing:-.045em;font-weight:400;color:var(--green)}
+    .hero-desc{color:var(--muted);font-size:15px;line-height:2;max-width:475px;margin-bottom:34px}
+    .hero-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+    .button-dark{display:inline-flex;align-items:center;justify-content:space-between;gap:33px;background:#283c34;color:#fff;padding:15px 20px;border:1px solid #283c34;font-size:12px;font-weight:600;border-radius:3px;transition:background .2s}
+    .button-dark:hover{background:#416453}
+    .link{font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:12px;border-bottom:1px solid #b5c3b8;padding-bottom:5px}
+    .hero-bottom{margin-top:65px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;color:#8b9891;font-size:11px;letter-spacing:.055em}
+    .hero-bottom span+span:before{content:"/";padding-right:22px;color:#c7d1c9}
+    .hero-art{position:relative;min-height:485px;border-radius:4px;background:linear-gradient(145deg,#e9efea,#f1f4ef 45%,#dce6df);border:1px solid #dce6dc;overflow:hidden}
+    .hero-art::before{content:"";position:absolute;inset:0;opacity:.57;background-image:linear-gradient(#9fac9f24 1px,transparent 1px),linear-gradient(90deg,#9fac9f24 1px,transparent 1px);background-size:38px 38px}
+    .hero-art::after{content:"";position:absolute;width:370px;height:370px;left:50%;top:43%;transform:translate(-50%,-50%);border:1px solid rgba(79,112,93,.19);border-radius:50%;box-shadow:0 0 0 60px rgba(238,245,238,.4),0 0 0 61px rgba(79,112,93,.13),0 0 0 114px rgba(238,245,238,.26)}
+    .art-badge{position:absolute;z-index:3;top:26px;left:27px;font-size:10px;letter-spacing:.13em;color:#5c7565;font-weight:700}
+    .art-corner{position:absolute;z-index:3;right:27px;top:26px;font-size:10px;color:#658170}
+    .art-center{position:absolute;z-index:2;inset:68px 35px 53px;display:flex;justify-content:center;align-items:center}
+    .vision-frame{width:min(355px,100%);background:#f9fcf9e3;box-shadow:0 20px 48px #526f5c28;border:1px solid #bdcfc2;padding:18px;border-radius:5px;transform:rotate(-5deg)}
+    .frame-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e0e8df;padding-bottom:13px;margin-bottom:20px;font-size:10px;color:#809487;letter-spacing:.09em}
+    .frame-dots{display:flex;gap:5px}
+    .frame-dots i{width:6px;height:6px;border-radius:50%;background:#b5cdbd;display:block}
+    .frame-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:144px;align-items:center}
+    .contour{height:137px;border:1px solid #d8e2d7;position:relative;overflow:hidden;background:linear-gradient(135deg,#f6faf5,#e6eee7)}
+    .contour::before{content:"";position:absolute;inset:25% 21% 20%;border:2px solid #688f79;border-radius:4px;transform:rotate(-15deg);box-shadow:0 0 0 10px #8fac9514}
+    .contour::after{content:"+";position:absolute;left:48%;top:40%;color:#83a691;font-size:20px;font-weight:300}
+    .contour i{position:absolute;border:1px solid #82a995;width:12px;height:12px;border-radius:50%;left:30%;top:35%}
+    .signal-lines{display:grid;gap:12px}
+    .signal-lines b{display:block;font-family:monospace;color:#55745f;font-size:10px;letter-spacing:0;font-weight:500}
+    .signal-lines span{display:block;height:5px;background:#cfe0d0;border-radius:4px}
+    .signal-lines span:nth-of-type(2){width:77%;background:#8eb5a0}
+    .signal-lines span:nth-of-type(3){width:58%}
+    .signal-lines span:nth-of-type(4){width:90%}
+    .frame-footer{border-top:1px solid #e0e8df;margin-top:17px;padding-top:12px;display:flex;justify-content:space-between;color:#839b88;font-size:9px;letter-spacing:.04em}
+    .floating-label{position:absolute;z-index:4;background:#fffefa;border:1px solid #d3e0d5;box-shadow:0 10px 25px #56776114;border-radius:3px;padding:13px 17px}
+    .floating-label.one{right:18px;bottom:59px}
+    .floating-label.two{left:17px;bottom:23px}
+    .floating-label small{display:block;color:#96a69b;font-size:9px;letter-spacing:.14em;margin-bottom:3px}
+    .floating-label strong{font-size:12px;font-weight:620;color:#3f6250}
+    .section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-header{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:end;margin-bottom:44px}
+    .section-header h2{font-size:clamp(35px,4vw,54px);font-weight:600;letter-spacing:-.065em;line-height:1.22;margin:16px 0 0}
+    .section-header .subtext{max-width:432px;color:var(--muted);font-size:14px;line-height:1.95;justify-self:end;margin-bottom:4px}
+    .serif-accent{font-style:italic;font-family:var(--serif);color:var(--green);font-weight:400}
+    .intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+    .intro-main,.intro-side{background:#fff;padding:46px 49px}
+    .intro-main p{font-size:19px;line-height:1.92;letter-spacing:-.025em;max-width:650px;margin:18px 0 20px}
+    .intro-main p strong{color:var(--green);font-weight:630}
+    .intro-side .eyebrow{font-size:10px;font-weight:700;color:#8a9a90;letter-spacing:.17em;margin-bottom:20px}
+    .identity{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+    .identity:last-child{border-bottom:1px solid var(--line)}
+    .identity-num{font-family:var(--serif);font-size:23px;color:#8eab97;font-style:italic}
+    .identity strong{font-size:14px;font-weight:590}
+    .identity small{display:block;color:#96a49a;font-size:11px;margin-top:1px}
+    .projects-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:20px}
+    .project{background:#fff;border:1px solid var(--line);min-width:0}
+    .project.large{grid-row:span 2}
+    .project-visual{height:265px;position:relative;overflow:hidden;background:#e9eee8;display:grid;place-items:center;border-bottom:1px solid #e0e6df}
+    .large .project-visual{height:385px}
+    .project-visual.v-drawing{background:linear-gradient(140deg,#dce7db,#edf0e9)}
+    .project-visual.v-orbis{background:linear-gradient(145deg,#ece9e5,#f7f5ee)}
+    .project-visual.v-play{background:linear-gradient(150deg,#e5eeed,#f3f5f3)}
+    .project-visual.v-match{background:linear-gradient(135deg,#e7ece5,#eff2ec)}
+    .project-num{position:absolute;top:22px;left:24px;font-size:11px;letter-spacing:.18em;color:#718276;font-weight:700}
+    .visual-caption{position:absolute;bottom:22px;left:24px;color:#789083;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+    .visual-drawing{height:220px;width:250px;position:relative;border:1px solid #96b09a;background:repeating-linear-gradient(0deg,#fff9 0 1px,transparent 1px 24px),repeating-linear-gradient(90deg,#fff9 0 1px,transparent 1px 24px);transform:rotate(-8deg);box-shadow:19px 24px 0 -5px #b2cbb643,25px 30px 35px #5b7b5930}
+    .visual-drawing .shape{position:absolute;inset:42px 43px 32px;border:3px solid #62846c;clip-path:polygon(0 0,89% 0,89% 28%,100% 28%,100% 100%,0 100%)}
+    .visual-drawing .shape:after{content:"";position:absolute;inset:33px 35px;border:2px solid #829d87;border-radius:50%}
+    .visual-drawing:after{content:"";position:absolute;inset:20px;border:1px dashed #85a58c}
+    .cross{position:absolute;z-index:2;color:#77947f;font-family:monospace;font-size:14px}
+    .cross.a{top:17px;left:14px}.cross.b{right:14px;bottom:15px}
+    .visual-orbis{width:min(330px,78%);border:1px solid #d5cfc8;background:#fffefc;box-shadow:14px 14px 0 #ded7cc69;padding:17px 20px;transform:rotate(-4deg)}
+    .orbis-head{display:flex;justify-content:space-between;font-size:10px;font-family:var(--serif);letter-spacing:.05em;border-bottom:1px solid #eae6df;padding-bottom:12px;color:#796f60}
+    .orbis-map{height:90px;position:relative;margin-top:15px}
+    .orbis-node{position:absolute;padding:5px 9px;border:1px solid #d7d2c9;border-radius:30px;background:#fbf9f5;color:#80796c;font-size:10px}
+    .orbis-node.n1{left:34%;top:1px;background:#e7e4d9}
+    .orbis-node.n2{left:3%;bottom:7px}.orbis-node.n3{right:3%;bottom:7px}
+    .orbis-line{position:absolute;width:1px;height:57px;background:#c5bdae;top:26px;transform-origin:top}
+    .orbis-line.l1{left:49%;transform:rotate(43deg)}.orbis-line.l2{left:49%;transform:rotate(-43deg)}
+    .orbis-bottom{display:flex;gap:6px}.orbis-bottom span{height:5px;flex:1;border-radius:2px;background:#e6e0d7}
+    .orbis-bottom span:nth-child(2){flex:2;background:#bdcdbb}
+    .visual-play{width:min(350px,78%);background:#fcfefd;border:1px solid #ccdcd8;box-shadow:15px 18px 0 -2px #afcecb63;padding:14px;transform:rotate(3deg)}
+    .play-top{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e6eeeb;padding-bottom:9px;color:#648479;font-size:10px;font-weight:700}
+    .play-row{display:flex;align-items:center;gap:10px;border-bottom:1px solid #e9f0ed;padding:10px 0}
+    .play-row:before{content:"";height:17px;width:17px;border-radius:4px;background:#d6e8df}
+    .play-row span{height:5px;flex:1;border-radius:4px;background:#d8e6df}
+    .play-row i{width:42px;height:14px;border-radius:20px;background:#e3f1e9}
+    .match-scene{width:min(350px,78%);display:flex;align-items:center;gap:20px}
+    .match-box{height:115px;flex:1;background:#fafcf9;border:1px solid #bdd0be;position:relative;box-shadow:6px 7px 0 #c7daca66}
+    .match-box::before{content:"";position:absolute;inset:24px 16px;border:2px solid #83a38a;transform:rotate(-13deg)}
+    .match-box:last-child:before{transform:rotate(12deg);border-color:#6e99a3}
+    .match-link{width:35px;height:1px;background:#87a68d;position:relative}
+    .match-link:after{content:"›";position:absolute;right:-2px;top:-16px;color:#6e9581;font-size:22px}
+    .project-info{padding:30px 32px 32px}
+    .project-info .project-category{font-size:10px;color:#789381;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .project-info h3{font-size:clamp(23px,2.25vw,29px);font-weight:610;letter-spacing:-.05em;line-height:1.35;margin:13px 0}
+    .project-info p{color:#77817e;font-size:13px;line-height:1.95;margin-bottom:20px}
+    .project-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:13px;border-top:1px solid var(--line);padding-top:17px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tags span{display:inline-block;border:1px solid #e3e9e3;background:#f8faf8;color:#687a6e;padding:4px 8px;font-size:10px}
+    .status{color:#7b8d80;font-size:10px;white-space:nowrap}
+    .status:before{content:"";display:inline-block;width:5px;height:5px;background:#7f9f85;border-radius:50%;vertical-align:middle;margin-right:7px}
+    .tech-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .tech-card{padding:28px 30px 30px;border:1px solid var(--line);background:rgba(255,255,255,.75);min-height:225px}
+    .tech-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:17px;margin-bottom:17px}
+    .tech-head strong{font-size:17px;font-weight:610;letter-spacing:-.025em}
+    .tech-head em{font-family:var(--serif);font-style:italic;color:#adc0b1;font-size:24px}
+    .tech-card p{font-size:13px;color:#708179;line-height:1.85;margin:0 0 16px}
+    .tech-list{display:flex;flex-wrap:wrap;gap:7px}
+    .tech-list span{padding:6px 9px;background:#f4f7f3;border:1px solid #e4eae2;font-size:11px;color:#5c7164}
+    .practice{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid #cfd9d0;border-bottom:1px solid #cfd9d0}
+    .practice-item{padding:36px 23px 30px 0}
+    .practice-item+.practice-item{border-left:1px solid #dce5dc;padding-left:23px}
+    .practice-num{font:italic 27px var(--serif);color:#85a490;margin-bottom:28px}
+    .practice-item h3{font-size:15px;font-weight:620;margin-bottom:9px}
+    .practice-item p{font-size:12px;color:#78857c;line-height:1.9;margin:0}
+    .notes-section{display:grid;grid-template-columns:.72fr 1.28fr;gap:55px;align-items:start}
+    .notes-intro h2{font-size:clamp(35px,4vw,52px);line-height:1.22;letter-spacing:-.055em;margin:17px 0 18px;font-weight:600}
+    .notes-intro p{font-size:13px;color:#7b8a7f;line-height:1.9}
+    .note-list{border-top:1px solid #cbd8cf}
+    .note{padding:24px 0;border-bottom:1px solid #d8e1d8;display:grid;grid-template-columns:90px 1fr;gap:24px}
+    .note .code{font-family:var(--serif);font-style:italic;color:#85a491;font-size:15px}
+    .note strong{display:block;font-size:15px;font-weight:610;margin-bottom:7px}
+    .note p{margin:0;color:#7b877f;font-size:12px;line-height:1.85}
+    .contact{background:#e7eee7;border-top:1px solid #dce6dd;border-bottom:1px solid #dce6dd;padding:90px 0}
+    .contact-inner{display:flex;justify-content:space-between;align-items:end;gap:35px}
+    .contact h2{font-size:clamp(36px,4.5vw,62px);letter-spacing:-.06em;line-height:1.23;margin:18px 0 20px;font-weight:570}
+    .contact p{color:#708379;max-width:550px;font-size:14px;margin:0}
+    .contact .button-dark{white-space:nowrap;margin-bottom:7px}
+    .footer{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:31px 0;color:#8c9a90;font-size:11px}
+    .footer strong{font-weight:720;color:#52675a;letter-spacing:.09em}
+    @media(max-width:1050px){
+      .wrap{width:min(100% - 56px,1216px)}
+      .hero{grid-template-columns:1fr;gap:40px;min-height:0}
+      .hero-art{min-height:430px}
+      .hero-bottom{margin-top:35px}
+      .projects-grid{grid-template-columns:1fr 1fr}
+      .project.large{grid-row:auto}
+      .large .project-visual{height:265px}
+      .project-info{padding:27px}
+    }
+    @media(max-width:720px){
+      .wrap{width:calc(100% - 36px)}
+      .header{height:72px}
+      .brand{font-size:19px}
+      .brand small{font-size:8px}
+      .nav{gap:14px}
+      .nav a:not(.github-link){display:none}
+      .hero{padding:66px 0 75px}
+      .hero h1{font-size:clamp(43px,11vw,64px)}
+      .hero-desc{font-size:14px}
+      .hero-art{min-height:395px}
+      .hero-bottom{gap:8px 14px}
+      .hero-bottom span+span:before{padding-right:14px}
+      .section{padding:70px 0}
+      .section-header{grid-template-columns:1fr;gap:13px;margin-bottom:28px}
+      .section-header .subtext{justify-self:start}
+      .intro-grid,.projects-grid,.tech-columns,.notes-section{grid-template-columns:1fr}
+      .intro-main,.intro-side{padding:30px 27px}
+      .intro-main p{font-size:16px}
+      .project-visual,.large .project-visual{height:255px}
+      .project-info{padding:25px}
+      .practice{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .practice-item{padding:25px 13px!important;border-left:0!important}
+      .practice-item:nth-child(even){padding-left:20px!important;border-left:1px solid #dce5dc!important}
+      .practice-item:nth-child(n+3){border-top:1px solid #dce5dc}
+      .notes-section{gap:12px}
+      .contact{padding:65px 0}
+      .contact-inner{display:block}
+      .contact .button-dark{margin-top:28px}
+    }
+    @media(max-width:420px){
+      .art-center{inset:65px 18px 50px}
+      .floating-label.one{right:9px;bottom:40px}
+      .floating-label.two{left:9px;bottom:8px}
+      .frame-body{gap:10px}
+      .hero-bottom{font-size:10px}
+      .practice-num{margin-bottom:17px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
   </style>
 </head>
-<body>
-  <header class="container nav">
-    <a class="logo" href="#top"><span class="logo-mark">Y</span> YSIR007</a>
-    <nav class="nav-links" aria-label="网站导航">
-      <a href="#about">关于</a><a href="#projects">作品</a>
-      <a class="nav-github" href="https://github.com/YSIR007" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    </nav>
+<body id="top">
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="返回首页"><span class="brand-emblem" aria-hidden="true">Y</span><span>YSIR007<small>DIGITAL STUDIO</small></span></a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#work">项目</a>
+        <a href="#expertise">技术领域</a>
+        <a href="#thinking">思考</a>
+        <a class="github-link" href="https://github.com/YSIR007" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      </nav>
+    </div>
   </header>
-  <main id="top">
-    <div class="container hero">
-      <span class="eyebrow">WELCOME TO MY DIGITAL SPACE</span>
-      <h1>你好，我是 YSIR007。<br><span>探索技术，创造有趣的产品。</span></h1>
-      <p>关注人工智能、计算机视觉与软件开发。我喜欢把想法变成可以运行的作品，也会在这里记录项目、实验和学习过程。</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#projects">查看我的作品 <span aria-hidden="true">↗</span></a>
-        <a class="btn btn-secondary" href="https://github.com/YSIR007" target="_blank" rel="noopener noreferrer">访问 GitHub →</a>
-      </div>
-      <div class="hero-meta">
-        <span>✦ <b>AI & Computer Vision</b></span>
-        <span>✦ <b>Software Engineering</b></span>
-        <span>✦ <b>Creative Building</b></span>
-      </div>
-    </div>
 
-    <section class="content" id="about">
-      <div class="container">
-        <div class="section-top">
-          <div><span class="kicker">WHAT I DO</span><h2>我感兴趣的方向</h2></div>
-          <p>不局限于某一个框架，更关注技术怎样落地、怎样解决真实问题。</p>
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="overline"><span class="dot"></span>ENGINEERING · INTELLIGENCE · PRODUCTS</div>
+        <h1 id="hero-title">让智能技术，<br><span class="serif">真正进入现实。</span></h1>
+        <p class="hero-desc">你好，我是 YSIR007。专注于机器视觉、工业自动化与 AI 应用，也在持续构建自己的独立软件产品。从感知与算法，到系统集成与用户体验，我喜欢把复杂问题做成真正可运行的解决方案。</p>
+        <div class="hero-actions">
+          <a class="button-dark" href="#work">探索我的作品 <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="link" href="#about">了解更多 <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
-        <div class="grid">
-          <article class="card"><div class="card-icon">◉</div><h3>计算机视觉</h3><p>图像处理、目标检测、视觉识别与工程化部署，把机器的“看见”变成实用能力。</p></article>
-          <article class="card"><div class="card-icon">⌘</div><h3>AI 应用</h3><p>探索大语言模型、智能体与自动化工作流，把复杂过程变得更简单。</p></article>
-          <article class="card"><div class="card-icon">◇</div><h3>独立开发</h3><p>从产品构思到前后端实现，持续尝试有价值、可迭代的小型软件工具。</p></article>
+        <div class="hero-bottom" aria-label="关注方向"><span>COMPUTER VISION</span><span>AI SYSTEMS</span><span>INDEPENDENT SOFTWARE</span></div>
+      </div>
+      <div class="hero-art" aria-label="抽象的工业视觉分析示意图，作为装饰性图形" role="img">
+        <span class="art-badge">SYSTEMS / IN PRACTICE</span><span class="art-corner">FIG. 001 — PERCEPTION</span>
+        <div class="art-center">
+          <div class="vision-frame">
+            <div class="frame-top"><span>VISION / PIPELINE</span><span class="frame-dots"><i></i><i></i><i></i></span></div>
+            <div class="frame-body">
+              <div class="contour"><i></i></div>
+              <div class="signal-lines"><b>01 · CAPTURE</b><span></span><b>02 · ANALYZE</b><span></span><b>03 · ACT</b><span></span><span></span></div>
+            </div>
+            <div class="frame-footer"><span>ENGINEERING / SYSTEM</span><span>VISUAL CONCEPT</span></div>
+          </div>
+        </div>
+        <div class="floating-label one"><small>WORKFLOW</small><strong>See → Understand → Build</strong></div>
+        <div class="floating-label two"><small>DESIGN PRINCIPLE</small><strong>Clarity over complexity.</strong></div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div><span class="overline">01 / ABOUT</span><h2>技术的广度，<br><span class="serif-accent">服务于问题的深度。</span></h2></div>
+          <p class="subtext">我更关心一套系统最终能否稳定运行，而不只是算法是否在实验室中表现出色。</p>
+        </div>
+        <div class="intro-grid">
+          <div class="intro-main">
+            <span class="overline">A LITTLE ABOUT ME</span>
+            <p>我的主要工作围绕<strong>工业机器视觉与自动化系统</strong>展开：从图纸与相机图像的几何对齐、目标检测和 OCR，到机械臂、PLC、工业相机与上位机的协同，关注从算法到设备端的完整闭环。</p>
+            <p>在工程之外，我也投入时间研究<strong>大语言模型、Agent 与独立软件产品</strong>，尝试把积累的技术经验转化为真正有人愿意使用的工具。对我而言，技术不仅是研究对象，更是解决问题和创造产品的手段。</p>
+          </div>
+          <div class="intro-side">
+            <div class="eyebrow">THREE PERSPECTIVES</div>
+            <div class="identity"><span class="identity-num">01</span><div><strong>机器视觉与算法工程</strong><small>Perception · Geometry · Inference</small></div></div>
+            <div class="identity"><span class="identity-num">02</span><div><strong>工业系统集成与交付</strong><small>Cameras · Robots · PLC · Interfaces</small></div></div>
+            <div class="identity"><span class="identity-num">03</span><div><strong>独立产品与 AI 应用</strong><small>Ideas · Products · Iteration</small></div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content" id="projects">
-      <div class="container">
-        <div class="section-top">
-          <div><span class="kicker">SELECTED WORK</span><h2>作品与探索</h2></div>
-          <p>先放一些方向展示，后续可以换成真实项目的介绍、截图、演示和源码链接。</p>
+    <section id="work" class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div><span class="overline">02 / SELECTED WORK</span><h2>做过的事，<br><span class="serif-accent">正在构建的事。</span></h2></div>
+          <p class="subtext">从工业现场的真实工程问题，到面向创作者和业务场景的软件产品。这里呈现的是项目方向与公开可分享的实践概览。</p>
         </div>
-        <div class="projects">
-          <article class="project">
-            <div class="project-visual"><span class="project-symbol">CV / 01</span><span class="pill">方向展示</span></div>
-            <div class="project-body"><h3>视觉与自动化实验</h3><p>围绕图像理解、检测算法和自动化系统的技术探索。这里可以放项目截图、过程介绍和成果。</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Machine Vision</span></div></div>
+        <div class="projects-grid">
+          <article class="project large">
+            <div class="project-visual v-drawing">
+              <span class="project-num">PROJECT / 01</span>
+              <div class="visual-drawing" aria-hidden="true"><div class="shape"></div><span class="cross a">+</span><span class="cross b">+</span></div>
+              <span class="visual-caption">INDUSTRIAL / PERCEPTION / INTEGRATION</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Industrial Vision · Engineering</span>
+              <h3>工业视觉检测与自动化采集系统</h3>
+              <p>围绕工程图纸、工业相机与机械臂构建自动化检测流程。实践内容包括图纸坐标到相机视图的映射、目标定位与分割、OCR 识别、检测点规划，以及相机、PLC、机械臂和上位机之间的通信协同；并探索线轮廓传感器辅助高度定位。</p>
+              <div class="project-footer">
+                <div class="tags"><span>Python</span><span>OpenCV</span><span>YOLO</span><span>OCR</span><span>Robot / PLC</span></div>
+                <span class="status">工程实践</span>
+              </div>
+            </div>
           </article>
+
           <article class="project">
-            <div class="project-visual alt"><span class="project-symbol">AI / 02</span><span class="pill">方向展示</span></div>
-            <div class="project-body"><h3>AI 驱动的创意工具</h3><p>尝试将大模型与实际工作流程结合，让创作、整理和决策变得更轻松。</p><div class="tags"><span>LLM</span><span>Agent</span><span>Web App</span></div></div>
+            <div class="project-visual v-orbis">
+              <span class="project-num">PROJECT / 02</span>
+              <div class="visual-orbis" aria-hidden="true">
+                <div class="orbis-head"><span>ORBIS / STORY WORKSPACE</span><span>✦</span></div>
+                <div class="orbis-map"><span class="orbis-line l1"></span><span class="orbis-line l2"></span><span class="orbis-node n1">故事世界</span><span class="orbis-node n2">人物 · 关系</span><span class="orbis-node n3">章节 · 结构</span></div>
+                <div class="orbis-bottom"><span></span><span></span><span></span></div>
+              </div>
+              <span class="visual-caption">INDEPENDENT PRODUCT / CREATION TOOLS</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Independent Software · Creative Tools</span>
+              <h3>Orbis · 创作者的故事工作台</h3>
+              <p>面向小说创作者的结构化大纲与世界观管理工具。围绕故事、章节和世界对象组织内容，已推进基础业务能力与数据结构，持续探索 AI 如何帮助作者规划、整理和维护复杂叙事。</p>
+              <div class="project-footer">
+                <div class="tags"><span>React</span><span>TypeScript</span><span>Fastify</span><span>PostgreSQL</span></div>
+                <span class="status">持续开发</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual v-play">
+              <span class="project-num">PROJECT / 03</span>
+              <div class="visual-play" aria-hidden="true">
+                <div class="play-top"><span>PLAYORDER / OPERATIONS</span><span>···</span></div>
+                <div class="play-row"><span></span><i></i></div><div class="play-row"><span></span><i></i></div><div class="play-row"><span></span><i></i></div>
+              </div>
+              <span class="visual-caption">SAAS / WORKFLOW / BUSINESS</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">SaaS · Business Workflow</span>
+              <h3>PlayOrder · 门店业务软件探索</h3>
+              <p>围绕单店陪玩业务的订单与服务流程进行 SaaS 产品探索。关注复杂业务规则如何被整理成简单、易理解、可持续迭代的数字工具。</p>
+              <div class="project-footer">
+                <div class="tags"><span>SaaS</span><span>Product Design</span><span>Workflow</span></div>
+                <span class="status">产品探索</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual v-match">
+              <span class="project-num">PROJECT / 04</span>
+              <div class="match-scene" aria-hidden="true"><div class="match-box"></div><div class="match-link"></div><div class="match-box"></div></div>
+              <span class="visual-caption">RESEARCH / CROSS-MODAL ALIGNMENT</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Geometry · Applied Research</span>
+              <h3>工程图纸 × 真实图像匹配研究</h3>
+              <p>探索工程图与相机照片之间的跨模态配准。比较轮廓几何、内部孔槽结构、特征匹配与深度模型，关注重复定位的稳定性和可解释的验收指标。</p>
+              <div class="project-footer">
+                <div class="tags"><span>Homography</span><span>RANSAC</span><span>LightGlue</span><span>UPAL</span></div>
+                <span class="status">持续研究</span>
+              </div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="container">
-      <aside class="cta">
-        <div><h2>更多内容，持续更新。</h2><p>这里是我的个人网站起点，新的项目和想法会陆续加入。</p></div>
-        <a class="btn btn-primary" href="https://github.com/YSIR007" target="_blank" rel="noopener noreferrer">在 GitHub 找到我 ↗</a>
-      </aside>
-    </div>
+    <section id="expertise" class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div><span class="overline">03 / EXPERTISE & TOOLKIT</span><h2>跨越算法、设备<br><span class="serif-accent">与软件产品。</span></h2></div>
+          <p class="subtext">这些工具与技术来自实际项目、原型开发和持续实验。它们不是为了堆砌关键词，而是服务于不同层次的问题。</p>
+        </div>
+        <div class="tech-columns">
+          <article class="tech-card">
+            <div class="tech-head"><strong>视觉感知与图像算法</strong><em>01</em></div>
+            <p>从图像预处理、识别与分割，到目标轮廓、局部清晰度、缺陷分析和几何测量。</p>
+            <div class="tech-list"><span>OpenCV</span><span>YOLO Detection / Segmentation</span><span>PaddleOCR</span><span>Image Processing</span><span>Anomalib</span><span>Tenengrad / Laplacian</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-head"><strong>几何配准与空间测量</strong><em>02</em></div>
+            <p>连接 PDF 工程图、相机坐标与机械臂运动空间，探索从二维图像到实际测量的可靠映射。</p>
+            <div class="tech-list"><span>Homography</span><span>RANSAC</span><span>Camera Calibration</span><span>LoFTR / LightGlue</span><span>Contour & Chamfer</span><span>3D Laser Profiling</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-head"><strong>工业系统与边缘部署</strong><em>03</em></div>
+            <p>关注设备侧的稳定运行、通信时序与推理性能，打通算法、硬件控制和业务系统。</p>
+            <div class="tech-list"><span>Industrial Cameras</span><span>Robot Integration</span><span>PLC / Modbus TCP</span><span>LabVIEW</span><span>Jetson Orin</span><span>CUDA / ONNX / TensorRT</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-head"><strong>AI 应用与软件工程</strong><em>04</em></div>
+            <p>从 API 和数据模型到前端交互、模型服务与产品原型，逐步将 AI 能力融入可使用的工具。</p>
+            <div class="tech-list"><span>Python / FastAPI</span><span>React / TypeScript</span><span>Node.js / Fastify</span><span>PostgreSQL / SQLAlchemy</span><span>PyTorch / Ollama</span><span>LLM / Agent / MCP</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div><span class="overline">04 / HOW I WORK</span><h2>从一个问题，<br><span class="serif-accent">到完整的解决方案。</span></h2></div>
+          <p class="subtext">用工程思维理解约束，用快速实验筛选方向，再把可行的部分沉淀为稳定的系统和产品。</p>
+        </div>
+        <div class="practice">
+          <article class="practice-item"><div class="practice-num">01</div><h3>理解真实场景</h3><p>先厘清任务、约束与可衡量的目标，而不是预设某一种技术。</p></article>
+          <article class="practice-item"><div class="practice-num">02</div><h3>验证关键假设</h3><p>优先建立最小闭环，比较不同方案在真实数据与环境下的表现。</p></article>
+          <article class="practice-item"><div class="practice-num">03</div><h3>连接完整系统</h3><p>把算法、接口、设备与业务流程组合在一起，处理实际集成问题。</p></article>
+          <article class="practice-item"><div class="practice-num">04</div><h3>迭代并产品化</h3><p>把一次性的经验变成更可靠、可维护、可复用的软件能力。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="thinking" class="section">
+      <div class="wrap notes-section">
+        <div class="notes-intro"><span class="overline">05 / CURRENTLY EXPLORING</span><h2>持续实验，<br><span class="serif-accent">保持好奇。</span></h2><p>近期关注的一些技术问题与产品方向。这里是兴趣与研究主题，而非已经发表的文章。</p></div>
+        <div class="note-list">
+          <div class="note"><span class="code">Lab / 01</span><div><strong>工业视觉中的真实鲁棒性</strong><p>多角度、多尺度、模糊与遮挡情况下，如何建立稳定的检测、配准与验收流程。</p></div></div>
+          <div class="note"><span class="code">Lab / 02</span><div><strong>边缘设备上的高效 AI 推理</strong><p>模型导出、TensorRT 推理、设备适配以及实际采集与响应链路的性能平衡。</p></div></div>
+          <div class="note"><span class="code">Lab / 03</span><div><strong>Agent 与自动化工作台</strong><p>本地大模型、工具调用、MCP 和自动化操作如何与实际软件工作流配合。</p></div></div>
+          <div class="note"><span class="code">Lab / 04</span><div><strong>独立产品的长期价值</strong><p>面向具体用户需求，思考软件如何从可运行原型成长为持续被使用的产品。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div><span class="overline">LET'S CONNECT</span><h2>继续创造<br><span class="serif-accent">有实际价值的东西。</span></h2><p>欢迎交流 AI 应用、机器视觉、自动化系统以及独立产品开发。更多代码和项目动态可以在 GitHub 找到我。</p></div>
+        <a class="button-dark" href="https://github.com/YSIR007" target="_blank" rel="noopener noreferrer">访问我的 GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
   </main>
-  <footer class="container"><span>© <span id="year">2026</span> YSIR007 · Personal Website</span><span>Made with HTML & CSS · Hosted on Cloudflare Pages</span></footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+  <footer class="wrap footer"><strong>YSIR007 / DIGITAL STUDIO</strong><span>Build thoughtfully. Ship deliberately.</span><span>© 2026 YSIR007 · Made for the web.</span></footer>
 </body>
 </html>
